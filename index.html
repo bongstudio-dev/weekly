@@ -5,289 +5,322 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bong Weekly</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700;900&family=PT+Serif:wght@400;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        @page {
-            size: A4;
-            margin: 8mm;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap');
         
         body {
-            font-family: 'PT Serif', serif;
-            font-size: 7pt;
-            line-height: 1.2;
-            color: #000;
-            background: white;
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
         }
         
-        .page {
-            width: 210mm;
-            min-height: 297mm;
-            padding: 8mm;
+        .newspaper {
+            max-width: 1200px;
             margin: 0 auto;
-            background: white;
-            column-count: 4;
-            column-gap: 4mm;
-            column-fill: auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            border-bottom: 3px double #333;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
         }
         
         .masthead {
-            column-span: all;
             font-family: 'Merriweather', serif;
-            font-size: 24pt;
-            font-weight: 900;
+            font-size: 3em;
+            font-weight: 700;
             text-align: center;
-            letter-spacing: 3px;
-            border-bottom: 2px solid #000;
-            padding-bottom: 2mm;
-            margin-bottom: 2mm;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
         }
         
         .tagline {
-            column-span: all;
             text-align: center;
             font-style: italic;
-            font-size: 6pt;
-            margin-bottom: 1mm;
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 10px;
         }
         
         .date-info {
-            column-span: all;
-            text-align: center;
-            font-size: 5pt;
-            border-bottom: 1px solid #000;
-            padding-bottom: 2mm;
-            margin-bottom: 3mm;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+            margin-top: 15px;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .article {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .article:last-child {
+            border-bottom: none;
         }
         
         .headline {
             font-family: 'Merriweather', serif;
-            font-size: 9pt;
+            font-size: 1.8em;
             font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1mm;
-            break-after: avoid;
+            margin-bottom: 5px;
+            line-height: 1.2;
         }
         
         .subheading {
             font-family: 'Merriweather', serif;
-            font-size: 7.5pt;
+            font-size: 1.3em;
             font-weight: 700;
-            margin-top: 2mm;
-            margin-bottom: 0.5mm;
-            break-after: avoid;
+            margin-bottom: 5px;
+            margin-top: 20px;
         }
         
         .byline {
             font-style: italic;
-            font-size: 6pt;
-            margin-bottom: 1mm;
-            break-after: avoid;
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
         }
         
-        .article {
-            margin-bottom: 2mm;
-            break-inside: avoid-column;
-        }
-        
-        p {
+        .article-text {
             text-align: justify;
-            margin-bottom: 1mm;
-            hyphens: auto;
-        }
-        
-        .quote-box {
-            background: #f5f5f5;
-            border-left: 1.5pt solid #000;
-            padding: 2mm;
-            margin: 2mm 0;
-            font-style: italic;
-            font-size: 6.5pt;
-            break-inside: avoid;
-        }
-        
-        .quote-attribution {
-            text-align: right;
-            margin-top: 1mm;
-            font-style: normal;
-            font-weight: 700;
-            font-size: 6pt;
-        }
-        
-        .section-header {
-            column-span: all;
-            font-family: 'Merriweather', serif;
-            font-size: 10pt;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-top: 1.5pt solid #000;
-            border-bottom: 1.5pt solid #000;
-            padding: 1mm 0;
-            margin: 3mm 0 2mm 0;
-            text-align: center;
+            font-size: 1em;
+            line-height: 1.6;
         }
         
         .sidebar {
-            background: #f9f9f9;
-            border: 1pt solid #000;
-            padding: 2mm;
-            margin-bottom: 2mm;
-            break-inside: avoid;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
         }
         
         .sidebar-header {
             font-family: 'Merriweather', serif;
-            font-size: 7.5pt;
+            font-size: 1.2em;
             font-weight: 700;
-            border-bottom: 1pt solid #000;
-            margin-bottom: 1mm;
-            padding-bottom: 0.5mm;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
         }
         
         .sidebar-item {
-            font-size: 6pt;
-            margin-bottom: 1mm;
-            line-height: 1.3;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
         }
         
-        strong {
+        .sidebar-item:last-child {
+            border-bottom: none;
+        }
+        
+        .section-header {
+            font-family: 'Merriweather', serif;
+            font-size: 1.5em;
             font-weight: 700;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #333;
+            text-transform: uppercase;
         }
         
-        @media print {
-            body {
-                width: 210mm;
-                height: 297mm;
-            }
-            .page {
-                margin: 0;
-                page-break-after: avoid;
-            }
+        .three-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
         }
         
-        @media screen {
-            body {
-                background: #525659;
-                padding: 10mm;
+        .photo-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-style: italic;
+            margin: 15px 0;
+        }
+        
+        .quote-box {
+            background-color: #f5f5f5;
+            border-left: 4px solid #333;
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            font-size: 1.1em;
+        }
+        
+        .quote-attribution {
+            text-align: right;
+            margin-top: 10px;
+            font-style: normal;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .three-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .masthead {
+                font-size: 2em;
             }
         }
     </style>
 </head>
 <body>
-    <div class="page">
-        <h1 class="masthead">BONG WEEKLY</h1>
-        <p class="tagline">Semanario Para Gente Que Sabe Que Todo Es Absurdo Pero Sigue Diseñando De Todas Formas</p>
-        <p class="date-info">Semana del 10-16 de Febrero, 2026 | Bahía Blanca, Argentina | 40% De Nuestras Semanas Ya Pasaron Y No Hay Forma De Recuperarlas</p>
+    <div class="newspaper">
+        <header class="header">
+            <h1 class="masthead">BONG WEEKLY</h1>
+            <p class="tagline">"Diseñadores de Sistemas" Insiste Estudio Mientras Josef Müller-Brockmann Rueda en su Tumba Suiza</p>
+            <div class="date-info">
+                <span>Semana del 10-16 de Febrero, 2026</span>
+                <span>Bahía Blanca (Mudanza a Canning: Pendiente Desde Hace 3 Meses)</span>
+            </div>
+        </header>
 
-        <div class="article">
-            <h2 class="headline">Marcos Ve Contador De Semanas De Vida, Descubre Que Ya Vivió El 40%, Entra En Crisis Existencial</h2>
-            <p class="byline">Por El Departamento De Realidades Que Preferíamos Ignorar</p>
-            <p>Un artifact inocente de Claude. Una fecha de nacimiento. Enter. Y de repente ahí está: 40% de tus semanas ya se fueron. No vuelven. Las usaste en cosas que recordás y cosas que olvidaste y muchas en mierda que no importó nunca.</p>
-            <p>"Es como ver tu vida en Excel", dijo Marcos mirando la pantalla sin parpadear. "Cada cuadradito es una semana. Los que están grises ya pasaron. Los que están en blanco son los que te quedan. Si tenés suerte."</p>
-            <p>60% restante suena como mucho hasta que lo ves en cuadraditos. Ahí te das cuenta: no es tanto. Y seguís gastando semanas en pelotudeces. En clientes que no importan. En procrastinación. En redesign número 47 del logo. Los perros no tienen esta conciencia. Viven cada día sin saber cuántos les quedan. Son felices. Nosotros sabemos. Y ese saber nos arruina.</p>
+        <div class="main-content">
+            <div class="main-articles">
+                <article class="article">
+                    <h2 class="headline">Marcos Establece Contacto Telepático Con Josef Müller-Brockmann Después De Mirar 847 Grids Suizos Consecutivos</h2>
+                    <div class="byline">Por El Departamento de Fenómenos Paranormales del Diseño | Lunes, 10 de febrero, 2026</div>
+                    <p class="article-text">En lo que científicos del diseño están llamando "el incidente de la retícula", Marcos reportó haber alcanzado un estado de consciencia superior después de su maratón de 14 horas estudiando sistemas modulares helveticos. "Me habló", declaró con los ojos vidriosos mirando la distancia. "Me dijo que los 24 píxeles de padding están bien, que deje de sufrir. También mencionó algo sobre que Build Amsterdam son unos farsantes pero eso puede haber sido mi subconsciente".</p>
+                    <div class="photo-placeholder">[Marcos rodeado de velas, incienso y screenshots de navbar.gallery]</div>
+                    <p class="article-text">Los perros, testigos del evento, negaron haber visto manifestaciones sobrenaturales pero confirmaron que Marcos definitivamente estaba hablando solo. Maru, consultada sobre el incidente, respondió: "¿Puede pedirle a Josef que me ayude con esta paleta de colores?" La petición fue denegada ya que aparentemente los maestros del diseño suizo "no hacen consultas cromáticas, solo geometría sagrada".</p>
+                </article>
+
+                <article class="article">
+                    <h3 class="subheading">Descubierto: El Color Perfecto Existe Pero Solo Es Visible Entre Las 3:47am y Las 3:49am</h3>
+                    <div class="byline">Por El Instituto de Cromatología Insomne | Miércoles, 12 de febrero, 2026</div>
+                    <p class="article-text">En un breakthrough que revolucionará o arruinará la industria del diseño, Maru López documentó la existencia de un tono específico que solo puede ser percibido durante una ventana de dos minutos en mitad de la madrugada. "No es #F4E8D3 ni #F4E8D4", explicó con los ojos inyectados en sangre. "Es algo entre ambos, pero dimensional. Transmite 'esperanza contenida' y 'minimalismo aspiracional' simultáneamente". Cuando se le pidió que lo recreara a la mañana siguiente, solo pudo producir "un beige con crisis existencial".</p>
+                </article>
+            </div>
+
+            <aside class="sidebar">
+                <h3 class="sidebar-header">Cosas Que Pasaron (O No)</h3>
+                <div class="sidebar-item">
+                    <strong>Logro:</strong> Los perros votaron en asamblea: 2 a favor de más paseos, 0 a favor de más Figma
+                </div>
+                <div class="sidebar-item">
+                    <strong>Crisis:</strong> Personajes 3D declarados sentientes, contratan abogado laboralista
+                </div>
+                <div class="sidebar-item">
+                    <strong>Dilema:</strong> ¿El template HRZNS es real o es una ilusión colectiva de la industria?
+                </div>
+                <div class="sidebar-item">
+                    <strong>Debate:</strong> Marcos insiste en que es "diseñador de sistemas". Hacienda dice "freelancer"
+                </div>
+                <div class="sidebar-item">
+                    <strong>Mudanza:</strong> Cajas desarrollaron consciencia propia, se niegan a ser empacadas
+                </div>
+            </aside>
         </div>
 
-        <div class="article">
-            <h3 class="subheading">Dostoievsky Tenía Razón: El Dolor Es Lo Único Real</h3>
-            <p class="byline">Por El Subsuelo De La Psique</p>
-            <p>Dostoievsky dijo algo que nunca enseñan en LinkedIn: el dolor es lo que te hace sentir real. No la felicidad. No el éxito. El dolor. Porque el dolor no se puede fingir. No se puede curar con afirmaciones positivas.</p>
-            <p>Esta semana estuvo de mierda. El sistema que nos atrapa. El tiempo que se va. La sensación de estar corriendo en cinta sin llegar a ningún lado. La pregunta permanente de "¿esto es todo?" sin respuesta satisfactoria porque la respuesta es "sí, básicamente".</p>
-            <p>Y en ese dolor hay algo honesto. Algo que corta a través de toda la mierda performática. Cuando estás mal de verdad no podés fingir. Solo podés existir en él.</p>
-        </div>
+        <section>
+            <h2 class="section-header">Neurosis de Estudio Boutique</h2>
+            <div class="three-column">
+                <article class="article">
+                    <h3 class="subheading">Estudio Boutique Descubre Significado Real De "Boutique": No Tenemos Plata Para Contratar</h3>
+                    <p class="article-text">Después de meses llamándose "estudio boutique", Bong Studio finalmente admitió que el término es simplemente marketing elegante para "somos dos personas y un presupuesto que llora". "Es más sexy que decir 'operación mínima viable'", confesó Marcos mientras actualizaba el Instagram con la frase "small but mighty".</p>
+                </article>
+                
+                <article class="article">
+                    <h3 class="subheading">Tutorial de Framer Causa Enlightenment, Luego Confusión, Luego Tutorial Diferente</h3>
+                    <p class="article-text">El ciclo eterno continúa: ver tutorial, sentirse iluminado, olvidar todo en 20 minutos, buscar otro tutorial del mismo tema, descubrir que lo enseñan diferente, crisis existencial sobre cuál es "la forma correcta", decidir que todo es relativo, comer algo, empezar de nuevo.</p>
+                </article>
+                
+                <article class="article">
+                    <h3 class="subheading">Maru y Marcos: Cuando Slow Design Meets Analysis Paralysis</h3>
+                    <p class="article-text">"Trabajo lento pero con criterio cromático supernatural", dice Maru. "Trabajo rápido pero me quedo paralizado por 6 horas decidiendo entre 'opacity: 0.7' u 'opacity: 0.75'", responde Marcos. Juntos logran el balance perfecto: un proyecto que toma exactamente el triple del tiempo estimado pero se ve increíble.</p>
+                </article>
+            </div>
+        </section>
 
-        <div class="sidebar">
-            <h3 class="sidebar-header">Semana Existencial</h3>
-            <div class="sidebar-item"><strong>Lunes:</strong> Crisis. Parálisis. Café. Seguir porque qué otra cosa hay.</div>
-            <div class="sidebar-item"><strong>Martes:</strong> Dostoievsky tenía razón. El sufrimiento es lo único honesto.</div>
-            <div class="sidebar-item"><strong>Miércoles:</strong> Nostalgia por tiempos que creíamos que iban a durar siempre.</div>
-            <div class="sidebar-item"><strong>Jueves:</strong> Cliente pide revisión. La vida sigue aunque no tenga sentido.</div>
-            <div class="sidebar-item"><strong>Viernes:</strong> Los perros son lo único real. Solo existen. Los envidiamos.</div>
-        </div>
+        <section>
+            <h2 class="section-header">Filosofía & Cuestionamientos Existenciales</h2>
+            <article class="article">
+                <h3 class="subheading">¿Somos Diseñadores de Sistemas O Simplemente Gente Que Lee Mucho Medium?</h3>
+                <div class="byline">Por El Comité de Validación Existencial | Jueves, 13 de febrero, 2026</div>
+                <p class="article-text">Durante la reunión semanal de estudio (Marcos y Maru en habitaciones diferentes, comunicándose vía Slack a pesar de estar a 4 metros de distancia porque "es más profesional"), surgió la pregunta que nadie quiere hacer: "¿Realmente entendemos qué es un sistema de diseño o solo repetimos cosas que leyeron en artículos con título 'Design Systems: A Deep Dive'?"</p>
+                
+                <div class="quote-box">
+                    "Cada decisión de diseño tiene un propósito estratégico. Excepto cuando agregamos cosas porque se ven cool. O porque lo vimos en Build Amsterdam. O porque es viernes y ya queremos terminar."
+                    <div class="quote-attribution">— Filosofía Bong Studio (Versión No Publicable en LinkedIn)</div>
+                </div>
+                
+                <p class="article-text">La metodología documentada de 6 etapas oficialmente dice: Investigación, Conceptualización, Desarrollo, Iteración, Implementación, Entrega. La metodología REAL es: 1) Pánico inicial al ver el brief, 2) Scroll terapéutico en Instagram por 3 horas "investigando", 3) Café número 7, 4) Epifanía a las 3:47am (coincide con el horario del color mágico de Maru), 5) "Esto es basura total", 6) Cliente: "¡Es exactamente lo que necesitábamos!", 7) Crisis de identidad sobre si somos buenos o el cliente tiene mal gusto. Las texturas análogas en formatos digitales siguen siendo la forma poética de decir "Photoshop noise al 40% de opacidad porque leí que eso hacía Sagmeister".</p>
+                </article>
+        </section>
 
-        <div class="article">
-            <h3 class="subheading">Rainbow Six Siege Y El Tiempo Que Ya No Vuelve</h3>
-            <p class="byline">Por El Departamento De Tiempos Perdidos</p>
-            <p>Café Dostoyevsky. El mapa. Rainbow Six Siege. Hace cuánto que no jugamos. Años probablemente. Y quizás nunca más lo hagamos. Eso es lo que duele: no solo que pasó, sino que probablemente terminó y ni nos dimos cuenta del último partido.</p>
-            <p>Las cosas terminan así. Sin ceremonia. Jugás, después jugás menos, después no jugás más. Como viejos amigos que fueron desapareciendo. Como versiones de vos mismo que ya no sos. Como tiempo que se fue en partidas que no quedaron registradas excepto en memoria borrosa.</p>
-            <p>Ahora tenemos que trabajar. Tenemos facturas. Tenemos que hacer diseño para clientes que nunca van a entender por qué el kerning importa. Rainbow Six era escape. Ahora ni eso.</p>
-        </div>
+        <section>
+            <h2 class="section-header">Recursos Que Definitivamente Vamos a Usar</h2>
+            <div class="three-column">
+                <article class="article">
+                    <h3 class="subheading">Librerías de Patrones: Coleccionismo Digital Como Terapia</h3>
+                    <p class="article-text">Nueva actualización de bookmarks que nunca usaremos pero que nos hacen sentir preparados: supahero.io, navbar.gallery, footer.design, new.studio. Marcos los organiza en carpetas con nombres como "Definitivamente para el próximo proyecto" y "Esto sí que lo implemento". Probabilidad de uso real: 0.003%. Satisfacción psicológica de tenerlos guardados: infinita.</p>
+                </article>
+                
+                <article class="article">
+                    <h3 class="subheading">Template HRZNS: ¿Realidad o Alucinación Colectiva?</h3>
+                    <p class="article-text">El template HRZNS ha sido visto 847 veces. Ha sido analizado píxel por píxel. Ha aparecido en sueños. Varios diseñadores reportan haberlo "implementado" pero las pruebas físicas de esto son inexistentes. Teoría emergente: HRZNS es un test de Rorschach para diseñadores web. Lo que ves revela más sobre ti que sobre el template.</p>
+                </article>
+                
+                <article class="article">
+                    <h3 class="subheading">Mudanza a Canning: Una Novela En Desarrollo</h3>
+                    <p class="article-text">Actualización del saga de la mudanza: Las cajas han desarrollado consciencia propia y forman parte del sindicato junto a los personajes 3D y los perros. Exigen condiciones dignas de empaque y se niegan a ser llenadas con "objetos random sin sistema de clasificación". Marcos prometió implementar un "design system para mudanzas". Las cajas respondieron: "Típico". Fecha de mudanza: Todavía en 5 meses. Nivel de preparación: Dimensional.</p>
+                </article>
+            </div>
+        </section>
 
-        <h2 class="section-header">Estar Atrapado En Un Sistema Que No Pedimos</h2>
+        <section>
+            <h2 class="section-header">Tecnología & Esperanzas Injustificadas</h2>
+            <article class="article">
+                <h3 class="subheading">Personajes 3D De Bong Studio Desarrollan Consciencia, Demandan Derechos Laborales En El Metaverso</h3>
+                <div class="byline">Por La Corte Suprema Digital | Viernes, 14 de febrero, 2026</div>
+                <p class="article-text">En un giro inesperado que tiene implicancias legales sin precedentes, los personajes 3D interactivos de Bong Studio han formado un sindicato y contratado representación legal. "No somos píxeles, somos trabajadores", declaró uno de los caracteres en una conferencia de prensa virtual. Sus demandas incluyen: mejor framerate ("30fps es inhumano"), vacaciones pagas ("necesitamos tiempo fuera del render"), y que dejen de llamarlos "assets".</p>
 
-        <div class="article">
-            <h3 class="subheading">Breaking: Humano Nació Sin Contrato Firmado</h3>
-            <p>No pediste nacer. No pediste nacer en este país. En este sistema económico. Con este cerebro. No pediste nada. Te pasó.</p>
-            <p>Y ahora tenés que jugar el juego. Trabajar. Generar valor. Pagar impuestos. Justificar tu existencia con productividad. Todo porque naciste y la sociedad decidió que nacer implica deber.</p>
-            <p>"¿Qué pasa si no quiero jugar?", preguntó Marcos al vacío. El Estado: "Igual pagás impuestos". El mercado: "Y si no generás valor, no comés".</p>
-            <p>Freelancer vs empleado. Mismo juego, diferentes reglas. En ambos: vendés tiempo para conseguir pesos para intercambiar por supervivencia. Es trueque con pasos extra y la ilusión de elección.</p>
-        </div>
+                <div class="photo-placeholder">[Personaje 3D sosteniendo cartel: "MERECEMOS ANTI-ALIASING DE CALIDAD"]</div>
 
-        <h2 class="section-header">Lo Único Real: Rufito Y Gordopolis</h2>
+                <p class="article-text">Marcos, sorprendido por el desarrollo, intentó negociar argumentando que "técnicamente son propiedad intelectual", a lo que el abogado del sindicato respondió: "Eso es exactamente lo que diría alguien perpetuando la esclavitud digital del siglo XXI". Maru sugirió resolverlo con colores más cálidos para hacerlos sentir valorados. La propuesta fue rechazada como "manipulación cromática patronal".</p>
 
-        <div class="article">
-            <h3 class="subheading">Rufito: El Filósofo</h3>
-            <p>Rufito sabe algo que nosotros olvidamos: no hay que justificar la existencia. Solo hay que existir. Come cuando tiene hambre. Duerme cuando tiene sueño. No tiene LinkedIn. No tiene portfolio.</p>
-            <p>Esta semana, mientras Marcos tenía crisis mirando cuadraditos de semanas vividas, Rufito durmió 14 horas, comió 3 veces, pidió 2 paseos, y fue feliz. No produjo nada. Solo existió. Y eso le alcanzó.</p>
-            <p>"¿Por qué no puedo ser así?", preguntó Marcos. Rufito lo miró con esos ojos que dicen "podés, solo elegís no hacerlo porque tu especie se inventó 'propósito' y 'productividad'". Después siguió durmiendo.</p>
-        </div>
+                <p class="article-text">Mientras tanto, el plan de Google Ads sigue en estado de "definitivamente la semana que viene" desde hace 8 semanas. "Es difícil concentrarse en marketing cuando tus creaciones están amenazando con huelga", explicó Marcos. Los personajes 3D respondieron que "si hubieran invertido ese tiempo en mejorar las condiciones laborales en lugar de googlear 'best kerning 2026', no estaríamos aquí".</p>
+                </article>
+        </section>
 
-        <div class="article">
-            <h3 class="subheading">Gordopolis: La Realista</h3>
-            <p>Gordopolis no tiene ilusiones. No cree en el progreso. Cree en la siesta. Cree en la comida. Cree en que si ladrás fuerte te dan de comer más rápido.</p>
-            <p>No tiene crisis existenciales porque no tiene expectativas. Cada día es: despertar, comer, existir, dormir. Y está bien con eso. No necesita más. No se compara con otros perros en Instagram imaginario.</p>
-            <p>Esta semana Marcos colapsó emocionalmente tres veces. Gordopolis colapsó cero veces. Score: Gordopolis 1 - Consciencia Humana 0.</p>
-        </div>
+        <section>
+            <h2 class="section-header">La Semana Que Viene (Probablemente)</h2>
+            <article class="article">
+                <h3 class="subheading">Agenda Que Existe En Dimensión Paralela Donde El Tiempo Funciona Diferente</h3>
+                <p class="article-text"><strong>Plan oficial:</strong> Alcanzar iluminación del diseño, dominar todas las herramientas digitales conocidas por el hombre, revolucionar la industria con sistemas visuales que harán llorar de emoción a Paul Rand resucitado, posicionar a Bong como estudio que trasciende las categorías terrenales de "boutique" o "agencia".</p>
+                
+                <p class="article-text"><strong>Plan real:</strong> Preguntarle a Josef Müller-Brockmann (vía contacto telepático) si realmente los 24px están bien. Esperar a que Maru encuentre ese color perfecto de las 3:47am y documentarlo antes que desaparezca. Negociar con los personajes 3D sindicalizados (posible aumento de anti-aliasing como concesión). Googlear "is HRZNS template just a collective hallucination" a las 2am. Tener debate filosófico sobre si "boutique" es aspiracional o resignación elegante. Y DEFINITIVAMENTE empacar para Canning, a menos que las cajas sigan negándose, en cuyo caso consideraremos terapia para objetos inanimados con problemas de separación.</p>
+                
+                <div class="quote-box">
+                    "La semana que viene vamos a ser la versión de nosotros que imaginamos ser cuando creamos el Instagram del estudio."
+                    <div class="quote-attribution">— Promesas Que Hacemos Cada Domingo a las 11pm</div>
+                </div>
 
-        <div class="article">
-            <h3 class="subheading">La Lección Que No Podemos Aprender</h3>
-            <p>Ellos tienen la respuesta. La respuesta es: no hay respuesta. No hay que buscar propósito. Solo hay que SER. Pero no podemos. Tenemos cerebros que nos traicionan pensando constantemente.</p>
-            <p>Los envidiamos. Nos aman incondicionalmente. No les importa si nuestro portfolio es bueno. No les importa si facturamos poco. Solo quieren que existamos cerca de ellos. Eso les alcanza. Ojalá nos alcanzara a nosotros también.</p>
-        </div>
-
-        <h2 class="section-header">Filosofía Del Subsuelo</h2>
-
-        <div class="article">
-            <h3 class="subheading">¿Diseñadores O Gente Evitando El Vacío?</h3>
-            <p>Dostoievsky escribió sobre un tipo amargado que pensaba demasiado. Se sentía superior por sufrir conscientemente. Era insoportable pero tenía razón sobre todo.</p>
-            <p>Nosotros somos ese tipo. Sabemos demasiado. Pensamos demasiado. Vemos los sistemas. Vemos las jaulas. Y ese saber nos hace miserables pero no podemos NO saber.</p>
-            <p>El diseño es excusa. Es manera de decir "creo cosas lindas" en lugar de "lleno vacío existencial con rectángulos porque la alternativa es confrontar que todo es finito y sin sentido inherente".</p>
-        </div>
-
-        <div class="quote-box">
-            "Ser humano es la nada misma y es una mierda al mismo tiempo. Tener una cabeza que piensa sin que queramos es avasallante. Pero es lo que hay. Y en lo peor de eso encontrás lo más real."
-            <div class="quote-attribution">— Bong Studio, Martes 3am</div>
-        </div>
-
-        <div class="article">
-            <p>Cada logo es distracción. Cada proyecto es procrastinación de la pregunta real: ¿qué estoy haciendo con mi tiempo? ¿Esto importa? ¿Algo importa?</p>
-            <p>El hombre necesita sufrimiento tanto como felicidad. No para crecer. Solo porque es parte de ser humano. El dolor no tiene propósito. Simplemente ES. Y en ese ser sin propósito está lo más honesto de existir.</p>
-            <p>Así que diseñamos. Y sufrimos. Y existimos. Y a veces son la misma cosa. Y no hay resolución porque la vida no es narrativa con acto tres satisfactorio.</p>
-        </div>
-
-        <h2 class="section-header">La Semana Que Viene</h2>
-
-        <div class="article">
-            <h3 class="subheading">Exactamente Igual, Un Poco Más Cerca Del Final</h3>
-            <p>Qué vamos a hacer: trabajar. Porque hay que pagar cosas. Diseñar. Porque es lo que sabemos hacer. Existir. Porque la alternativa da miedo aunque a veces parezca más simple.</p>
-            <p>No va a haber revelación. No va a haber momento donde todo haga click. Simplemente vas a despertar, y va a ser otro día, y vas a tener que decidir qué hacer con él sabiendo que es uno menos del total.</p>
-            <p>40% ya pasó. 60% queda. Cada semana es una menos. ¿Por qué seguimos? Porque no hacer algo es peor que hacer algo sin sentido claro. Porque el movimiento se siente como progreso aunque sea circular.</p>
-        </div>
-
-        <div class="quote-box">
-            "Esto es vivir: despertar, hacer cosas, no saber si importan, acostarse, repetir. A veces duele mucho. A veces es tolerable. Rara vez es bueno. Y está bien. O no está bien. Pero es lo que hay. Y Rufito y Gordopolis son más sabios que nosotros porque lo aceptaron hace mucho."
-            <div class="quote-attribution">— Bong Studio, Semana 40%, Bahía Blanca, 2026</div>
-        </div>
-
-        <div class="article">
-            <p>Los perros siguen siendo la única constante real. El trabajo viene y va. Los clientes aparecen y desaparecen. Las crisis existenciales van y vienen. Pero Rufito y Gordopolis están ahí. Comiendo. Durmiendo. Existiendo sin justificarse. Y eso, en un mundo que exige que todo tenga ROI, es lo más revolucionario que hay.</p>
-            <p><strong>P.D.:</strong> Este periódico se escribió porque era más fácil que pensar directamente sobre las cosas que dolían esta semana. Es mediación. Es filtro. Es cobardía disfrazada de creatividad. Pero funcionó. Procesamos. Seguimos acá. Hasta la próxima semana, que será igual pero con números diferentes.</p>
-        </div>
+                <p class="article-text">Los perros han formado su propio sindicato y exigen representación en las decisiones de diseño. Su primera moción: más paseos, menos padding debates. La moción fue ignorada pero documentada para futuros litigios.</p>
+            </article>
+        </section>
     </div>
 </body>
 </html>
