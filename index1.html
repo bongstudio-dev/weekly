@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bong Weekly</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap');
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .newspaper {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            border-bottom: 3px double #333;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+        
+        .masthead {
+            font-family: 'Merriweather', serif;
+            font-size: 3em;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .tagline {
+            text-align: center;
+            font-style: italic;
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .date-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9em;
+            margin-top: 15px;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .article {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .article:last-child {
+            border-bottom: none;
+        }
+        
+        .headline {
+            font-family: 'Merriweather', serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+        
+        .subheading {
+            font-family: 'Merriweather', serif;
+            font-size: 1.3em;
+            font-weight: 700;
+            margin-bottom: 5px;
+            margin-top: 20px;
+        }
+        
+        .byline {
+            font-style: italic;
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+        
+        .article-text {
+            text-align: justify;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+        
+        .sidebar {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        
+        .sidebar-header {
+            font-family: 'Merriweather', serif;
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 5px;
+        }
+        
+        .sidebar-item {
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .sidebar-item:last-child {
+            border-bottom: none;
+        }
+        
+        .section-header {
+            font-family: 'Merriweather', serif;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #333;
+            text-transform: uppercase;
+        }
+        
+        .three-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-style: italic;
+            margin: 15px 0;
+        }
+        
+        .quote-box {
+            background-color: #f5f5f5;
+            border-left: 4px solid #333;
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            font-size: 1.1em;
+        }
+        
+        .quote-attribution {
+            text-align: right;
+            margin-top: 10px;
+            font-style: normal;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .three-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .masthead {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="newspaper">
+        <header class="header">
+            <h1 class="masthead">BONG WEEKLY</h1>
+            <p class="tagline">"Diseñadores de Sistemas" Insiste Estudio Mientras Josef Müller-Brockmann Rueda en su Tumba Suiza</p>
+            <div class="date-info">
+                <span>Semana del 10-16 de Febrero, 2026</span>
+                <span>Bahía Blanca (Mudanza a Canning: Pendiente Desde Hace 3 Meses)</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="main-articles">
+                <article class="article">
+                    <h2 class="headline">Marcos Establece Contacto Telepático Con Josef Müller-Brockmann Después De Mirar 847 Grids Suizos Consecutivos</h2>
+                    <div class="byline">Por El Departamento de Fenómenos Paranormales del Diseño | Lunes, 10 de febrero, 2026</div>
+                    <p class="article-text">En lo que científicos del diseño están llamando "el incidente de la retícula", Marcos reportó haber alcanzado un estado de consciencia superior después de su maratón de 14 horas estudiando sistemas modulares helveticos. "Me habló", declaró con los ojos vidriosos mirando la distancia. "Me dijo que los 24 píxeles de padding están bien, que deje de sufrir. También mencionó algo sobre que Build Amsterdam son unos farsantes pero eso puede haber sido mi subconsciente".</p>
+                    <div class="photo-placeholder">[Marcos rodeado de velas, incienso y screenshots de navbar.gallery]</div>
+                    <p class="article-text">Los perros, testigos del evento, negaron haber visto manifestaciones sobrenaturales pero confirmaron que Marcos definitivamente estaba hablando solo. Maru, consultada sobre el incidente, respondió: "¿Puede pedirle a Josef que me ayude con esta paleta de colores?" La petición fue denegada ya que aparentemente los maestros del diseño suizo "no hacen consultas cromáticas, solo geometría sagrada".</p>
+                </article>
+
+                <article class="article">
+                    <h3 class="subheading">Descubierto: El Color Perfecto Existe Pero Solo Es Visible Entre Las 3:47am y Las 3:49am</h3>
+                    <div class="byline">Por El Instituto de Cromatología Insomne | Miércoles, 12 de febrero, 2026</div>
+                    <p class="article-text">En un breakthrough que revolucionará o arruinará la industria del diseño, Maru López documentó la existencia de un tono específico que solo puede ser percibido durante una ventana de dos minutos en mitad de la madrugada. "No es #F4E8D3 ni #F4E8D4", explicó con los ojos inyectados en sangre. "Es algo entre ambos, pero dimensional. Transmite 'esperanza contenida' y 'minimalismo aspiracional' simultáneamente". Cuando se le pidió que lo recreara a la mañana siguiente, solo pudo producir "un beige con crisis existencial".</p>
+                </article>
+            </div>
+
+            <aside class="sidebar">
+                <h3 class="sidebar-header">Cosas Que Pasaron (O No)</h3>
+                <div class="sidebar-item">
+                    <strong>Logro:</strong> Los perros votaron en asamblea: 2 a favor de más paseos, 0 a favor de más Figma
+                </div>
+                <div class="sidebar-item">
+                    <strong>Crisis:</strong> Personajes 3D declarados sentientes, contratan abogado laboralista
+                </div>
+                <div class="sidebar-item">
+                    <strong>Dilema:</strong> ¿El template HRZNS es real o es una ilusión colectiva de la industria?
+                </div>
+                <div class="sidebar-item">
+                    <strong>Debate:</strong> Marcos insiste en que es "diseñador de sistemas". Hacienda dice "freelancer"
+                </div>
+                <div class="sidebar-item">
+                    <strong>Mudanza:</strong> Cajas desarrollaron consciencia propia, se niegan a ser empacadas
+                </div>
+            </aside>
+        </div>
+
+        <section>
+            <h2 class="section-header">Neurosis de Estudio Boutique</h2>
+            <div class="three-column">
+                <article class="article">
+                    <h3 class="subheading">Estudio Boutique Descubre Significado Real De "Boutique": No Tenemos Plata Para Contratar</h3>
+                    <p class="article-text">Después de meses llamándose "estudio boutique", Bong Studio finalmente admitió que el término es simplemente marketing elegante para "somos dos personas y un presupuesto que llora". "Es más sexy que decir 'operación mínima viable'", confesó Marcos mientras actualizaba el Instagram con la frase "small but mighty".</p>
+                </article>
+                
+                <article class="article">
+                    <h3 class="subheading">Tutorial de Framer Causa Enlightenment, Luego Confusión, Luego Tutorial Diferente</h3>
+                    <p class="article-text">El ciclo eterno continúa: ver tutorial, sentirse iluminado, olvidar todo en 20 minutos, buscar otro tutorial del mismo tema, descubrir que lo enseñan diferente, crisis existencial sobre cuál es "la forma correcta", decidir que todo es relativo, comer algo, empezar de nuevo.</p>
+                </article>
+                
+                <article class="article">
+                    <h3 class="subheading">Maru y Marcos: Cuando Slow Design Meets Analysis Paralysis</h3>
+                    <p class="article-text">"Trabajo lento pero con criterio cromático supernatural", dice Maru. "Trabajo rápido pero me quedo paralizado por 6 horas decidiendo entre 'opacity: 0.7' u 'opacity: 0.75'", responde Marcos. Juntos logran el balance perfecto: un proyecto que toma exactamente el triple del tiempo estimado pero se ve increíble.</p>
+                </article>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-header">Filosofía & Cuestionamientos Existenciales</h2>
+            <article class="article">
+                <h3 class="subheading">¿Somos Diseñadores de Sistemas O Simplemente Gente Que Lee Mucho Medium?</h3>
+                <div class="byline">Por El Comité de Validación Existencial | Jueves, 13 de febrero, 2026</div>
+                <p class="article-text">Durante la reunión semanal de estudio (Marcos y Maru en habitaciones diferentes, comunicándose vía Slack a pesar de estar a 4 metros de distancia porque "es más profesional"), surgió la pregunta que nadie quiere hacer: "¿Realmente entendemos qué es un sistema de diseño o solo repetimos cosas que leyeron en artículos con título 'Design Systems: A Deep Dive'?"</p>
+                
+                <div class="quote-box">
+                    "Cada decisión de diseño tiene un propósito estratégico. Excepto cuando agregamos cosas porque se ven cool. O porque lo vimos en Build Amsterdam. O porque es viernes y ya queremos terminar."
+                    <div class="quote-attribution">— Filosofía Bong Studio (Versión No Publicable en LinkedIn)</div>
+                </div>
+                
+                <p class="article-text">La metodología documentada de 6 etapas oficialmente dice: Investigación, Conceptualización, Desarrollo, Iteración, Implementación, Entrega. La metodología REAL es: 1) Pánico inicial al ver el brief, 2) Scroll terapéutico en Instagram por 3 horas "investigando", 3) Café número 7, 4) Epifanía a las 3:47am (coincide con el horario del color mágico de Maru), 5) "Esto es basura total", 6) Cliente: "¡Es exactamente lo que necesitábamos!", 7) Crisis de identidad sobre si somos buenos o el cliente tiene mal gusto. Las texturas análogas en formatos digitales siguen siendo la forma poética de decir "Photoshop noise al 40% de opacidad porque leí que eso hacía Sagmeister".</p>
+                </article>
+        </section>
+
+        <section>
+            <h2 class="section-header">Recursos Que Definitivamente Vamos a Usar</h2>
+            <div class="three-column">
+                <article class="article">
+                    <h3 class="subheading">Librerías de Patrones: Coleccionismo Digital Como Terapia</h3>
+                    <p class="article-text">Nueva actualización de bookmarks que nunca usaremos pero que nos hacen sentir preparados: supahero.io, navbar.gallery, footer.design, new.studio. Marcos los organiza en carpetas con nombres como "Definitivamente para el próximo proyecto" y "Esto sí que lo implemento". Probabilidad de uso real: 0.003%. Satisfacción psicológica de tenerlos guardados: infinita.</p>
+                </article>
+                
+                <article class="article">
+                    <h3 class="subheading">Template HRZNS: ¿Realidad o Alucinación Colectiva?</h3>
+                    <p class="article-text">El template HRZNS ha sido visto 847 veces. Ha sido analizado píxel por píxel. Ha aparecido en sueños. Varios diseñadores reportan haberlo "implementado" pero las pruebas físicas de esto son inexistentes. Teoría emergente: HRZNS es un test de Rorschach para diseñadores web. Lo que ves revela más sobre ti que sobre el template.</p>
+                </article>
+                
+                <article class="article">
+                    <h3 class="subheading">Mudanza a Canning: Una Novela En Desarrollo</h3>
+                    <p class="article-text">Actualización del saga de la mudanza: Las cajas han desarrollado consciencia propia y forman parte del sindicato junto a los personajes 3D y los perros. Exigen condiciones dignas de empaque y se niegan a ser llenadas con "objetos random sin sistema de clasificación". Marcos prometió implementar un "design system para mudanzas". Las cajas respondieron: "Típico". Fecha de mudanza: Todavía en 5 meses. Nivel de preparación: Dimensional.</p>
+                </article>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-header">Tecnología & Esperanzas Injustificadas</h2>
+            <article class="article">
+                <h3 class="subheading">Personajes 3D De Bong Studio Desarrollan Consciencia, Demandan Derechos Laborales En El Metaverso</h3>
+                <div class="byline">Por La Corte Suprema Digital | Viernes, 14 de febrero, 2026</div>
+                <p class="article-text">En un giro inesperado que tiene implicancias legales sin precedentes, los personajes 3D interactivos de Bong Studio han formado un sindicato y contratado representación legal. "No somos píxeles, somos trabajadores", declaró uno de los caracteres en una conferencia de prensa virtual. Sus demandas incluyen: mejor framerate ("30fps es inhumano"), vacaciones pagas ("necesitamos tiempo fuera del render"), y que dejen de llamarlos "assets".</p>
+
+                <div class="photo-placeholder">[Personaje 3D sosteniendo cartel: "MERECEMOS ANTI-ALIASING DE CALIDAD"]</div>
+
+                <p class="article-text">Marcos, sorprendido por el desarrollo, intentó negociar argumentando que "técnicamente son propiedad intelectual", a lo que el abogado del sindicato respondió: "Eso es exactamente lo que diría alguien perpetuando la esclavitud digital del siglo XXI". Maru sugirió resolverlo con colores más cálidos para hacerlos sentir valorados. La propuesta fue rechazada como "manipulación cromática patronal".</p>
+
+                <p class="article-text">Mientras tanto, el plan de Google Ads sigue en estado de "definitivamente la semana que viene" desde hace 8 semanas. "Es difícil concentrarse en marketing cuando tus creaciones están amenazando con huelga", explicó Marcos. Los personajes 3D respondieron que "si hubieran invertido ese tiempo en mejorar las condiciones laborales en lugar de googlear 'best kerning 2026', no estaríamos aquí".</p>
+                </article>
+        </section>
+
+        <section>
+            <h2 class="section-header">La Semana Que Viene (Probablemente)</h2>
+            <article class="article">
+                <h3 class="subheading">Agenda Que Existe En Dimensión Paralela Donde El Tiempo Funciona Diferente</h3>
+                <p class="article-text"><strong>Plan oficial:</strong> Alcanzar iluminación del diseño, dominar todas las herramientas digitales conocidas por el hombre, revolucionar la industria con sistemas visuales que harán llorar de emoción a Paul Rand resucitado, posicionar a Bong como estudio que trasciende las categorías terrenales de "boutique" o "agencia".</p>
+                
+                <p class="article-text"><strong>Plan real:</strong> Preguntarle a Josef Müller-Brockmann (vía contacto telepático) si realmente los 24px están bien. Esperar a que Maru encuentre ese color perfecto de las 3:47am y documentarlo antes que desaparezca. Negociar con los personajes 3D sindicalizados (posible aumento de anti-aliasing como concesión). Googlear "is HRZNS template just a collective hallucination" a las 2am. Tener debate filosófico sobre si "boutique" es aspiracional o resignación elegante. Y DEFINITIVAMENTE empacar para Canning, a menos que las cajas sigan negándose, en cuyo caso consideraremos terapia para objetos inanimados con problemas de separación.</p>
+                
+                <div class="quote-box">
+                    "La semana que viene vamos a ser la versión de nosotros que imaginamos ser cuando creamos el Instagram del estudio."
+                    <div class="quote-attribution">— Promesas Que Hacemos Cada Domingo a las 11pm</div>
+                </div>
+
+                <p class="article-text">Los perros han formado su propio sindicato y exigen representación en las decisiones de diseño. Su primera moción: más paseos, menos padding debates. La moción fue ignorada pero documentada para futuros litigios.</p>
+            </article>
+        </section>
+    </div>
+</body>
+</html>
